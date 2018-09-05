@@ -5,11 +5,14 @@ class WorkersController < ApplicationController
   # GET /workers.json
   def index
     @workers = Worker.all
+
   end
 
   # GET /workers/1
   # GET /workers/1.json
   def show
+    @proyects = Proyect.all
+
   end
 
   # GET /workers/new

@@ -1,19 +1,84 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><strong>Name:</strong></th>
+          <th><strong>Last name:</strong></th>
+          <th> <strong>Email:</strong></th>
+        </tr>
 
-<p>
-  <strong>Name:</strong>
-  <%= @worker.name %>
-</p>
+      </thead>
+      <tbody>
+        <td>
+          <%= @worker.name %>
+        </td>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @worker.last_name %>
-</p>
+        <td>
+          <%= @worker.last_name %>
+        </td>
 
-<p>
-  <strong>Email:</strong>
-  <%= @worker.email %>
-</p>
+        <td>
+          <%= @worker.email %>
+        </td>
 
-<%= link_to 'Edit', edit_worker_path(@worker) %> |
-<%= link_to 'Back', workers_path %>
+
+      </tbody>
+
+    </table>
+    <%= link_to 'Edit', edit_worker_path(@worker) %> |
+    <%= link_to 'Back', workers_path %>
+  </div>
+  <div class="col-md-6">
+    <p id="notice"><%= notice %></p>
+    <% @worker.proyects.each do |proyect| %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th> <strong> Proyect Name:</strong></th>
+          <th> <strong>Content</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>
+          <%= proyect.name %>
+        </td>
+        <td>
+          <%= proyect.content %>
+        </td>
+      </tbody>
+
+      <% end %>
+
+    </table>
+
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+<br>
+<br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><strong> Proyect disponible:</strong></th>
+          <th> <strong>Content</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @proyects.each do |proyect|  %>
+        <td>
+          <%= proyect.name %>
+        </td>
+        <td>
+          <%= proyect.content %>
+        </td>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+
+
+</div>
