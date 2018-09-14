@@ -31,7 +31,6 @@
   </div>
   <div class="col-md-6">
     <p id="notice"><%= notice %></p>
-    <% @worker.proyects.each do |proyect| %>
     <table class="table">
       <thead>
         <tr>
@@ -40,11 +39,15 @@
         </tr>
       </thead>
       <tbody>
+        <% @worker.proyects.each do |proyect| %>
         <td>
           <%= proyect.name %>
         </td>
         <td>
           <%= proyect.content %>
+        </td>
+        <td>
+          <%= link_to "cancelar", worker_allocation_path(@worker.id, :proyect_id => proyect.id), method: :delete, data: { confirm: 'Are you sure?' }   %>
         </td>
       </tbody>
 
@@ -74,6 +77,9 @@
         </td>
         <td>
           <%= proyect.content %>
+        </td>
+        <td>
+          <%= link_to "inscribir",  worker_allocations_path(@worker.id, :proyect_id => proyect.id), method: :post %>
         </td>
       </tbody>
       <% end %>

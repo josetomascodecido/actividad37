@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :proyects
-  resources :workers
+  resources :workers do
+    resources :allocations, only: [:create, :destroy]
+  end
   root to: 'dashboardctrl#index'
 
 
